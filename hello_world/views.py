@@ -7,5 +7,7 @@ from django.http import HttpResponse
 # Inside the function, we are returning a simple HTTP response.
 
 def index(request):
-    return HttpResponse("Hello, world!")
-
+    if request.method == "POST":
+        return HttpResponse("You must have POSTed something")
+    else:
+        return HttpResponse(request.method)
